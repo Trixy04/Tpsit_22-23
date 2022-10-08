@@ -22,33 +22,51 @@ public class Es_uno_server {
     {
 
         int portaServer = 3000;
-        
-
+    
         ServerSocket ss = new ServerSocket(portaServer);
         System.out.println("Server in ascolto sulla porta " + portaServer);
         Socket s = ss.accept();
         System.out.println("Client Connesso");
 
+        PrintWriter pr = new PrintWriter(s.getOutputStream());
+        pr.println("Inserisci l'altezza (M): ");
+        pr.flush();
+
         InputStreamReader altezza = new InputStreamReader(s.getInputStream());
         BufferedReader br = new BufferedReader(altezza);
         String HG = br.readLine();
-        System.out.println("Client --> " + "Altezza: " + HG + " Cm");
+
+        PrintWriter pr1 = new PrintWriter(s.getOutputStream());
+        pr1.println("Inserisci il peso (KG): ");
+        pr1.flush();
 
         InputStreamReader peso = new InputStreamReader(s.getInputStream());
         BufferedReader br1 = new BufferedReader(peso);
         String WG = br1.readLine();
-        System.out.println("Client --> " + "Peso: " + WG + " Kg");
-
-        PrintWriter pr = new PrintWriter(s.getOutputStream());
 
         float H = Float.parseFloat(HG);
         float W = Float.parseFloat(WG);
         float mol = H*H;
         float BMI = W / mol;
 
-        pr.println("L'indice metabolico-salutistico e': " + BMI);
+        PrintWriter pr2 = new PrintWriter(s.getOutputStream());
+        pr2.println("L'indice metabolico-salutistico e': " + BMI);
+        pr2.flush();
 
-        pr.flush();
+        PrintWriter pr3 = new PrintWriter(s.getOutputStream());
+        String x = "";
+
+        if(BMI > 24.9){
+            x = "SOVRAPPESO";
+        }else if(BMI < 18.5){
+            x = "SOTTOPESO";
+        }else{
+            x = "NORMOPESO";
+        }
+
+        pr3.println("Il paziente risulta essere " + x );
+        pr3.flush();
+        
         s.close();
         ss.close();
         
