@@ -22,7 +22,6 @@ public class ClientHandler extends Thread {
     }
 
     public void run() {
- 
         contatore++;
         try {
             System.out.println(br.readLine());
