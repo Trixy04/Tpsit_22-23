@@ -27,7 +27,7 @@ public class ClientHandler extends Thread {
         try {
             System.out.println(br.readLine());
             pr.println("Ciao, come ti chiami?");
-            String name = br.readLine(); // ricevo: il peso
+            String name = br.readLine().toUpperCase(); 
             System.out.println(name);
             pr.println("Server: " + name + " sei l'utente n. " + contatore );
            
