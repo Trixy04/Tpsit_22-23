@@ -8,11 +8,16 @@ import java.net.Socket;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class ClientHandler extends Thread {
     private Socket s;
+    public Socket getS() {
+        return s;
+    }
+
     private PrintWriter pr = null;
     private BufferedReader br = null;
     
@@ -20,9 +25,11 @@ public class ClientHandler extends Thread {
     private String comando;
     private String output;
     static String nomeServer = "Server_Teriaca";
+    private ArrayList<ClientHandler> clients;
 
     //contatore = contatore+1;
-    public ClientHandler(Socket s,int c) {
+    public ClientHandler(Socket s,int c, ArrayList<ClientHandler> x) {
+        this.clients = x;
         this.s = s;
         this.comando = "";
         this.output = "";
@@ -78,10 +85,16 @@ public class ClientHandler extends Thread {
                     s.close();
                     break;
 
+                }else if(comando.equals("chiudi")){
+                    pr.println("Tutte le connessioni saranno chiuse!");
+                    for(int i = 0; i < clients.size(); i++){
+                        System.out.println(i);
+                        clients.get(i).getS().close();
+                    }
+                    //clients.removeAll(clients);
+                    break;
                 }else{
-
                     pr.println("Il comando inserito non è valido");
-
                 }
 
             }

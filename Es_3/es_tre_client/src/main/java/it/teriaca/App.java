@@ -27,6 +27,8 @@ public class App {
             pr.println(x);
             if(x.equals(fine)){
                 break;
+            }else if(x.equals("chiudi")){
+                break;
             }
             
             System.out.println(br.readLine());
