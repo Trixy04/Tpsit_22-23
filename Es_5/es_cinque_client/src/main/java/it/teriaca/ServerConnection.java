@@ -17,19 +17,16 @@ public class ServerConnection implements Runnable {
 
     @Override
     public void run() {
-        boolean running = true;
-
         try {
-            while (running) {
+            while (true) {
                 String serverResponse = in.readLine();
-                if (serverResponse != null) {
-                    System.out.println(serverResponse);
-                    //break;
-                }
-                //break;
+                if ( serverResponse.equals("@") ) {
+                    System.out.println("chiudo");
+                    s.close();
+                    System.exit(0);                }
+                System.out.println(serverResponse);
             }
         } catch (IOException e) {
-
             e.printStackTrace();
         }
     }

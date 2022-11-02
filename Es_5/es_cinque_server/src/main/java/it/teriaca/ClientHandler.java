@@ -1,4 +1,4 @@
-package it;
+package it.teriaca;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,26 +15,27 @@ import java.util.List;
 
 public class ClientHandler extends Thread {
     private Socket s;
+
     public Socket getS() {
         return s;
     }
 
     private PrintWriter pr = null;
     private BufferedReader br = null;
-    
+
     private int c;
     private String comando;
     private String output;
     static String nomeServer = "Server_Teriaca";
     private List<ClientHandler> clients;
 
-    //contatore = contatore+1;
-    public ClientHandler(Socket s,int c, List<ClientHandler> x) {
+    // contatore = contatore+1;
+    public ClientHandler(Socket s, int c, List<ClientHandler> x) {
         this.clients = x;
         this.s = s;
         this.comando = "";
         this.output = "";
-        this.c=c;
+        this.c = c;
         try {
             pr = new PrintWriter(s.getOutputStream(), true);
             br = new BufferedReader(new InputStreamReader(s.getInputStream()));
@@ -45,22 +46,16 @@ public class ClientHandler extends Thread {
 
     public void run() {
  
-        try {
+        try {        
             //contatore++;
             System.out.println(br.readLine());
             pr.println("Ciao, come ti chiami?");
             String name = br.readLine().toUpperCase(); 
             System.out.println(name);
             pr.println("Server: " + name + " sei l'utente n. " + c );
-
+            
             for(;;){
-                try {
-                    comando = br.readLine();
-                }
-                catch(SocketException e){
-                    break;
-                }    
-
+                comando = br.readLine();
                 if(comando.equals("data")){
 
                     Calendar cal = new GregorianCalendar();
@@ -99,35 +94,34 @@ public class ClientHandler extends Thread {
                 
                 else if(comando.equals("chiudi")){
                     pr.println("Tutte le connessioni saranno chiuse!");
+                    sendToAll("@");
+                    /*
                     for(int i = 0; i < clients.size(); i++){
                         clients.get(i).getS().close();
                         System.out.println("Connessione con utente n. " + clients.get(i).c + " è stata CHIUSA!");
                     }
+                    */
                     clients.removeAll(clients);
                     break;
                 }else{
                     pr.println("Il comando inserito non è valido");
                 
+                }
             }
         }
-           
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            s.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+        catch(Exception e){
+            
+        }    
 
+
+    }
 
     /**
      * @param msg
      */
     private void sendToAll(String msg) {
-    for (ClientHandler client : clients) {
-        client.pr.println(msg);
+        for (ClientHandler client : clients) {
+            client.pr.println(msg);
+        }
     }
-}
 }

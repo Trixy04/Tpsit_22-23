@@ -5,8 +5,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.ClientHandler;
-
 public class App {
     static int contatore = 0;
 
