@@ -1,0 +1,29 @@
+.body {
+    background: rgb(36,0,0);
+    background: linear-gradient(90deg, rgba(36,0,0,1) 0%, rgba(121,91,9,1) 35%, rgba(0,179,255,1) 100%);
+}
+
+.div-gen{
+    background-color: rgb(255, 255, 255);
+    width: 30%;
+    margin: auto;
+    margin-top: 5%;
+    border: 2px solid black;
+    border-radius: 10%;
+    padding: 2%;
+}
+
+span{
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.title{
+    font-style: italic;
+
+}
+
+img{
+    border: 1px solid black;
+    border-radius: 5%;
+}
