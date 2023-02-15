@@ -1,0 +1,24 @@
+version: "2.13"
+services:
+  mio_webserver:
+    build: .
+    ports:
+      - 8080:80
+      - 8043:443
+    volumes: 
+      - ./php:/var/www/html
+  mio_db:
+    image: mysql
+    volumes:
+      - ./msql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=teriaca
+
+  mio_phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 8081:80
+    environment:
+    - PMA_ARBITRARY=1

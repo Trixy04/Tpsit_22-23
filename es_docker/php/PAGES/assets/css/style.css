@@ -1,0 +1,122 @@
+.f-right{
+    float: right;
+}
+
+.f-left{
+    float: left;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Economica:ital@1&display=swap');
+
+.body {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+.form {
+    background-color: whitesmoke;
+    width: 25%;
+    padding: 3%;
+    display: grid;
+    place-items: center;
+    border: 2px solid black;
+    border-radius: 5%;
+    margin: auto;
+    margin-top: 10%;
+}
+
+.text-economica{
+    font-family: 'Economica', sans-serif;
+}
+
+.mr-5{
+    margin-right: 5%;
+}
+
+.link-none{
+  text-decoration: none!important;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 100; /* Stay at the top */
+  left: 0;
+  /*background-color: ; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  /*font-size: 25px;*/
+  color: #818181;
+  display: block;
+}
+
+.mt-8{
+  margin-top: 8%;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.mt-top{
+  margin-top: 100px;
+}
+
+/* Style page content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidebar */
+  padding: 0px 0px;
+}
+
+.font-standard{
+  font-size: large;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.top-20{
+  margin-top: 20px;
+}
+
+.top-50{
+  margin-top: 50px;
+}
+
+.w-40{
+  width: 40%;
+}
+
+.ml-2{
+  margin-left: 2%;
+}
+
+.float-left{
+  float: left;
+}
+
+.float-right{
+  float: right;
+}
+
+.mr-2{
+  margin-right: 2%;
+}
+
+.w-90{
+  width: 85%;
+}
+.w-425{
+  width: 46%;
+}
