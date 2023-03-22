@@ -5,7 +5,7 @@ class Db
 
     private $host = "localhost";
     private $db_name = "Class_Manager";
-    private $username = "root";
+    private $username = "mamp";
     private $password = "";
     public $conn;
 
