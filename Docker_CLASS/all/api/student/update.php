@@ -8,9 +8,9 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 // include database and object files
-include_once '../../config/connectDB.php';
-include_once '../../object/student.php';
-
+include_once './config/connectDB.php';
+include_once './object/student.php';
+/*
 $database = new Db();
 $db = $database->getConnection();
 
@@ -28,7 +28,7 @@ $studente->cognome = $data->cognome;
 $studente->data_nascita = $data->data_nascita;
 $studente->codice_fiscale = $data->codice_fiscale;
 $studente->id_classe = $data->id_classe;
-
+*/
 // update the studente
 if ($studente->update()) {
     echo '{';

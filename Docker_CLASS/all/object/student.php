@@ -88,16 +88,17 @@
     //function UPDATE
     function update(){
         $sql = "UPDATE
-                " . $this->table_name . "
+                " . $this->table_name . " 
             SET
             codice_fiscale=:codice_fiscale,
             cognome=:cognome,
             nome=:nome,
             data_nascita=:data_nascita,
-            id_class=:id_classe
+            id_classe=:id_classe
             WHERE
                 id=:id";
 
+        
         // prepare query statement
         $stmt = $this->conn->prepare($sql);
 
@@ -116,6 +117,7 @@
         $stmt->bindParam(":data_nascita", $this->data_nascita);
         $stmt->bindParam(":id_classe", $this->id_classe);
         $stmt->bindParam(":id", $this->id);
+       
 
         // execute the query
         if ($stmt->execute()) {
