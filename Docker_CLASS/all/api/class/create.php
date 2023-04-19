@@ -8,9 +8,9 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 // include database and object files
-include_once '../../config/connectDB.php';
-include_once '../../object/class.php';
-
+include_once './config/connectDB.php';
+include_once './object/classe.php';
+/*
 $database = new Db();
 $db = $database->getConnection();
 
@@ -24,6 +24,8 @@ $data = json_decode(file_get_contents("php://input", true));
 $classe->anno = $data->anno;
 $classe->sezione = $data->sezione;
 $classe->spec = $data->spec;
+*/
+
 
 // create the classe
 if ($classe->create()) {
