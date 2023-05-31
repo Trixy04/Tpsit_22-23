@@ -48,6 +48,18 @@
         return $stmt;
     }
 
+    function readStudentsClass($id){
+        $sql = "SELECT *
+            FROM 
+                " . $this->table_name . " c
+            JOIN ALUNNO as A ON c.id = A.id_classe
+            WHERE c.id = '$id'";
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt;
+    }
+
     //funzione CREATE
     function create(){
         $sql = "INSERT INTO

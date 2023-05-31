@@ -113,4 +113,17 @@ switch ($count) {
                     break;
             }
         }
+
+    case 3:
+        if ($uri[0] == "class") {
+            $id = $uri[1];
+            if($uri[2] == "students"){
+                switch ($method) {
+                    case "GET":
+                        require __DIR__ . "/api/class/getStudentsClass.php";
+                        break;
+                }
+            }
+            
+        }
 }
